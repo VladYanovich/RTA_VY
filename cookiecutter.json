@@ -5,6 +5,5 @@
     "jdk_version" : 17,
     "julia_version": "1.7.1",
     "with_spark":["yes","no"],
-    "port": 8888,
-    "volumes": "./notebooks"
+    "port": 8888
 }
