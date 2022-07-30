@@ -10,5 +10,5 @@ services:
     volumes:
       - {{ cookiecutter.volumes }}:/home/jovyan/{{cookiecutter.work_directory}}
     ports:
-      - {\{ cookiecutter.port }}:8888
+      - {{cookiecutter.port}}:8888
     container_name: datascience
