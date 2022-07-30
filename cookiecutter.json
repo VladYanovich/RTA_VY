@@ -1,0 +1,8 @@
+{
+    "repo_name" : "jupyterlab",
+    "repo_url" : "",
+    "jdk_version" : 17,
+    "julia_version": "1.7.1",
+    "port": 8888,
+    "volumes": "./notebooks"
+}
