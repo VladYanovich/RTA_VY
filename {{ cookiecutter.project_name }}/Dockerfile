@@ -11,7 +11,7 @@ RUN apt-get update --yes && \
     apt-get install -y wget git netcat && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-{%- if cookiecutter.spark=="yes" -%}
+{%- if cookiecutter.with_spark=="yes" -%}
 # Spark dependencies
 # Default values can be overridden at build time
 # (ARGS are in lower case to distinguish them from ENV)
@@ -22,8 +22,6 @@ ARG spark_checksum="4c09dac70e22bf1d5b7b2cabc1dd92aba13237f52a5b682c67982266fc7a
 
 ENV APACHE_SPARK_VERSION="${spark_version}" \
     HADOOP_VERSION="${hadoop_version}"
-
-
 
 # Spark installation
 WORKDIR /tmp
@@ -66,4 +64,4 @@ RUN mamba install --quiet --yes \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-WORKDIR /home/jovyan/notebooks
+WORKDIR /home/jovyan/{{cookiecutter.work_directory}}

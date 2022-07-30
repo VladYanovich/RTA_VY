@@ -1,8 +1,10 @@
 {
-    "repo_name" : "jupyterlab",
-    "repo_url" : "",
+    "project_name" : "jupyterlab",
+    "work_directory": "notebooks",
+    "pass":"root",
     "jdk_version" : 17,
     "julia_version": "1.7.1",
+    "with_spark":["yes","no"],
     "port": 8888,
     "volumes": "./notebooks"
 }
