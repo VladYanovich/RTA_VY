@@ -50,18 +50,18 @@ RUN fix-permissions "/etc/ipython/"
 USER ${NB_UID}
 
 # example of conda-forge python package install
-RUN conda install -c conda-forge --yes \
-    'pennylane' && \
-    conda clean --all -f -y && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+#RUN conda install -c conda-forge --yes \
+#    'pennylane' && \
+#    conda clean --all -f -y && \
+#    fix-permissions "${CONDA_DIR}" && \
+#    fix-permissions "/home/${NB_USER}"
 
 
 # Install python pyarrow
-RUN mamba install --quiet --yes \
-    'pyarrow' && \
-    mamba clean --all -f -y && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+#RUN mamba install --quiet --yes \
+#    'pyarrow' && \
+#    mamba clean --all -f -y && \
+#    fix-permissions "${CONDA_DIR}" && \
+#    fix-permissions "/home/${NB_USER}"
 
 WORKDIR /home/jovyan/{{cookiecutter.work_directory}}
