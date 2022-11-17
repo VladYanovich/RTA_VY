@@ -49,6 +49,6 @@ RUN fix-permissions "/etc/ipython/"
 
 USER ${NB_UID}
 
-RUN pip install tensorflow pytorch fastai
+RUN pip install tensorflow torch fastai
 
 WORKDIR /home/jovyan/{{cookiecutter.work_directory}}
