@@ -5,5 +5,6 @@
     "jdk_version" : 17,
     "julia_version": "1.8.5",
     "with_spark":["yes","no"],
+    "with_kafka":["yes","no"],
     "port": 8888
 }
