@@ -1,7 +1,7 @@
-{%- if cookiecutter.with_kafka=="no" -%}
 version: "3.7"
+{%- if cookiecutter.with_kafka=="no" -%}
 services:
-  real-time:
+  datascience:
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,10 +11,11 @@ services:
     volumes:
       - ./{{ cookiecutter.work_directory }}:/home/jovyan/{{cookiecutter.work_directory}}
     ports:
-      - {{cookiecutter.port}}:8888
-    container_name: datascience
-{% endif %}
-
+      - 8888:8888
+      - 4040:4040
+      - 5050:5050
+    container_name: rta
+{%- endif -%}
 {%- if cookiecutter.with_kafka=="yes" -%}
 services:
   zookeeper:
@@ -48,10 +49,10 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - JUPYTER_TOKEN=root
-      - JULIA_VERSION=1.8.5
+      - JUPYTER_TOKEN={{ cookiecutter.pass }}
+      - JULIA_VERSION={{ cookiecutter.julia_version }}
     volumes:
-      - ./notebooks:/home/jovyan/notebooks
+      - ./{{ cookiecutter.work_directory }}:/home/jovyan/{{cookiecutter.work_directory}}
     ports:
       - 8888:8888
       - 4040:4040
@@ -59,10 +60,10 @@ services:
     container_name: rta
     depends_on:
       - broker
+{%- endif -%}
   mongo:
     image: mongo
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-{% endif %}
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin

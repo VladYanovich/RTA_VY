@@ -11,6 +11,9 @@ RUN apt-get update --yes && \
     apt-get install -y wget git netcat && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN python -m pip install tensorflow==2.12.0
+RUN python -m pip install torch==2.0.0
+
 {%- if cookiecutter.with_spark=="yes" -%}
 # Spark dependencies
 # Default values can be overridden at build time
@@ -45,7 +48,7 @@ RUN ln -s "spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}-scala${scal
 # Configure IPython system-wide
 COPY ipython_kernel_config.py "/etc/ipython/"
 RUN fix-permissions "/etc/ipython/"
-{% endif %}
+{%- endif -%}
 
 USER ${NB_UID}
 
