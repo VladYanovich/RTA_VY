@@ -1,5 +1,5 @@
 version: "3.7"
-{%- if cookiecutter.with_kafka=="no" -%}
+{% if cookiecutter.with_kafka=="no" %}
 services:
   datascience:
     build:
@@ -15,7 +15,14 @@ services:
       - 4040:4040
       - 5050:5050
     container_name: rta
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
 {%- endif -%}
+
 {%- if cookiecutter.with_kafka=="yes" -%}
 services:
   zookeeper:
@@ -60,10 +67,11 @@ services:
     container_name: rta
     depends_on:
       - broker
-{%- endif -%}
   mongo:
     image: mongo
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
+{%- endif -%}
+
