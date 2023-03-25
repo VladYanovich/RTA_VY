@@ -12,7 +12,6 @@ RUN apt-get update --yes && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install tensorflow==2.12.0
-RUN python -m pip install torch
 
 {%- if cookiecutter.with_spark=="yes" -%}
 # Spark dependencies
