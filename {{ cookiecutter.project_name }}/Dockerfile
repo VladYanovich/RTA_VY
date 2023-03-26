@@ -12,8 +12,7 @@ RUN apt-get update --yes && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install tensorflow==2.12.0
-
-{%- if cookiecutter.with_spark=="yes" -%}
+{% if cookiecutter.with_spark=="yes" %}
 # Spark dependencies
 # Default values can be overridden at build time
 # (ARGS are in lower case to distinguish them from ENV)

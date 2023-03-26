@@ -11,7 +11,7 @@ services:
     volumes:
       - ./{{ cookiecutter.work_directory }}:/home/jovyan/{{cookiecutter.work_directory}}
     ports:
-      - 8888:8888
+      - {{ cookiecutter.port }}:8888
       - 4040:4040
       - 5050:5050
     container_name: rta
@@ -61,7 +61,7 @@ services:
     volumes:
       - ./{{ cookiecutter.work_directory }}:/home/jovyan/{{cookiecutter.work_directory}}
     ports:
-      - 8888:8888
+      - {{ cookiecutter.port }}:8888
       - 4040:4040
       - 5050:5050
     container_name: rta
