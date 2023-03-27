@@ -4,8 +4,8 @@ USER root
 
 ARG openjdk_version="{{ cookiecutter.jdk_version }}"
 
-#RUN apt-get update --yes && \
-RUN apt-get install --yes --no-install-recommends \
+RUN apt-get update --yes && \
+    apt-get install --yes --no-install-recommends \
     "openjdk-${openjdk_version}-jre-headless" \
     ca-certificates-java && \
     apt-get install -y wget git netcat && \
