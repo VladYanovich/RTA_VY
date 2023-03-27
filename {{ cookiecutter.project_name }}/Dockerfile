@@ -4,14 +4,15 @@ USER root
 
 ARG openjdk_version="{{ cookiecutter.jdk_version }}"
 
-RUN apt-get update --yes && \
-    apt-get install --yes --no-install-recommends \
+#RUN apt-get update --yes && \
+RUN apt-get install --yes --no-install-recommends \
     "openjdk-${openjdk_version}-jre-headless" \
     ca-certificates-java && \
     apt-get install -y wget git netcat && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN python -m pip install tensorflow==2.12.0
+RUN python -m pip install --no-cache tensorflow==2.12.0
+
 {% if cookiecutter.with_spark=="yes" %}
 # Spark dependencies
 # Default values can be overridden at build time

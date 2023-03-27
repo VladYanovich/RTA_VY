@@ -12,9 +12,7 @@ services:
       - ./{{ cookiecutter.work_directory }}:/home/jovyan/{{cookiecutter.work_directory}}
     ports:
       - {{ cookiecutter.port }}:8888
-      - 4040:4040
-      - 5050:5050
-    container_name: rta
+    container_name: data
   mongo:
     image: mongo
     restart: always
