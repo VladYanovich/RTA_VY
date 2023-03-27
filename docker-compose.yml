@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  datascience:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - JUPYTER_TOKEN=root
+    volumes:
+      - ./notebooks:/home/jovyan/notebooks
+    ports:
+      - 8888:8888
+      - 4040:4040
+    container_name: jupyter
+  mongo:
+    image: mongo
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=admin
