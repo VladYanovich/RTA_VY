@@ -1,2 +1,8 @@
 # jupyterlab-project
-Python with Spark env for real time data analysis
+Python with Spark env for real time data analysis.
+
+```bash
+cd jupyterlab-project
+docker compose up
+
+```
