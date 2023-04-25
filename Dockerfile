@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Tensorflow and pymongo
-RUN pip install --no-cache tensorflow pymongo 
+RUN pip install --no-cache tensorflow pymongo flask
 
 USER ${NB_UID}
 
