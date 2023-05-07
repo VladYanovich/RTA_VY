@@ -3,11 +3,10 @@ FROM jupyter/pyspark-notebook
 USER root
 
 RUN apt-get update && \
-    apt-get install -y wget git netcat && \
+    apt-get install -y curl vim wget git netcat && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Install Tensorflow and pymongo
-RUN pip install --no-cache tensorflow pymongo flask
+RUN conda install --no-cache tensorflow pymongo flask numpy pandas matplotlib --yes
 
 USER ${NB_UID}
 
