@@ -17,6 +17,8 @@ RUN wget https://dlcdn.apache.org/kafka/3.7.0/kafka_2.13-3.7.0.tgz && \
     tar -xzf kafka_2.13-3.7.0.tgz && \
     mv kafka_2.13-3.7.0 /home/jovyan/kafka
 
+RUN rm -f /home/jovyan/kafka_2.13-3.7.0.tgz
+
 USER ${NB_USER}
 
 WORKDIR /home/jovyan/notebooks
