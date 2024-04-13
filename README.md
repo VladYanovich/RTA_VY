@@ -1,4 +1,4 @@
-# jupyterlab-project
+# jupyterlab
 Python with Spark env for real time data analysis.
 
 ```bash
@@ -12,3 +12,9 @@ docker compose up
 ctrl + c 
 docker compose down
 ```
+
+### Contain: 
+- Zookeeper
+- Apache Kafka Broker
+- MongoDB
+- JupyterLab env with Apache Spark
