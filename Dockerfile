@@ -18,10 +18,9 @@ RUN wget https://dlcdn.apache.org/kafka/3.7.0/kafka_2.13-3.7.0.tgz && \
     mv kafka_2.13-3.7.0 /home/jovyan/kafka
 
 RUN rm -f /home/jovyan/kafka_2.13-3.7.0.tgz
+RUN rm -rf ~/kafka/bin/windows/ ~/kafka/licenses ~/kafka/site-docs ~/kafka/NOTICE ~/kafka/LICENSE
+RUN rm -f ~/kafka/bin/*server*.sh
 
 USER ${NB_USER}
 
 WORKDIR /home/jovyan/notebooks
-
-
-
