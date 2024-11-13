@@ -9,12 +9,12 @@ ENV PIP_ROOT_USER_ACTION=ignore
 
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
     pip install --no-cache-dir tensorflow==2.15.0 && \
-    pip install --no-cache-dir torch==2.2.0 && \
+    pip install --no-cache-dir torch==2.0.1 && \
     pip install --no-cache-dir torchvision==0.15.2 && \
-    pip install --no-cache-dir ipywidgets flask==3.0.1 fastapi==0.115.5 uvicorn==0.32.0 pydot==2.0.0 && \
+    pip install --no-cache-dir ipywidgets==8.1.1 flask==3.0.1 fastapi==0.115.5 uvicorn==0.32.0 pydot==2.0.0 && \
     pip install --no-cache-dir pennylane==0.39 && \ 
-    pip install --no-cache-dir pandas==2.2.3 numpy==2.1.3 scipy==1.14.1 matplotlib==3.9.2 sympy==1.13.3 seaborn==0.13.2 && \
-    pip install --no-cache-dir kafka-python3==3.0.0 confluent_kafka==2.6.0 && \
+    pip install --no-cache-dir pandas==2.0.3 numpy==1.24.4 scipy==1.11.3 matplotlib==3.8.0 sympy==1.12 seaborn==0.13.0 && \
+    pip install --no-cache-dir kafka-python==2.0.2 confluent_kafka==2.6.0 && \
     fix-permissions "/home/${NB_USER}" 
 
 RUN wget https://downloads.apache.org/kafka/3.7.1/kafka_2.12-3.7.1.tgz && \
