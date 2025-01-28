@@ -15,7 +15,7 @@ docker compose down
 
 ### Contain: 
 - Zookeeper
-- Apache Kafka Broker with kafka_2.12-3.7.1 files for manipulation from terminal
+- Apache Kafka Broker with kafka directory for manipulation from terminal
 - MongoDB
 - JupyterLab env with Apache Spark
 
