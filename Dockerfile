@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel && \
     pip install --no-cache-dir kafka-python==2.0.2 confluent_kafka==2.6.0 && \
     fix-permissions "/home/${NB_USER}" 
 
-RUN wget https://downloads.apache.org/kafka/3.7.1/kafka_2.12-3.7.1.tgz && \
+RUN wget https://archive.apache.org/dist/kafka/3.7.1/kafka_2.12-3.7.1.tgz && \
     tar -xzf kafka_2.12-3.7.1.tgz && \
     mv kafka_2.12-3.7.1 /home/jovyan/kafka
 
